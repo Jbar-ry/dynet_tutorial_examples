@@ -233,7 +233,7 @@ for ITER in xrange(50):
     for i,s in enumerate(train,1):
         if i % 500 == 0:
             trainer.status()
-            print cum_loss / num_tagged
+            print "cum_loss / num_tagged", cum_loss / num_tagged
             cum_loss = 0
             num_tagged = 0
         if i % 10000 == 0 or i == len(train)-1: 
@@ -251,7 +251,7 @@ for ITER in xrange(50):
                 for go,gu in zip(golds,tags):
                     if go == gu: good += 1
                     else: bad += 1
-            print good/(good+bad), good_sent/(good_sent+bad_sent)
+            print "label acc",good/(good+bad),"sent acc",good_sent/(good_sent+bad_sent)
         # train on sent
         words = [w for w,t in s]
         golds = [t for w,t in s]
